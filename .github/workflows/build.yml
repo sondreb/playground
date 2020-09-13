@@ -65,11 +65,12 @@ jobs:
         mkdir release
         tar -xvf release.tar.gz -C release
 
-    - name: Display structure of downloaded files
-      run: ls -R
+#    - name: Display structure of downloaded files
+#      run: ls -R
 
     - name: Build the Docker container image
-      run: docker build -f "./src/Project/Dockerfile" -t blockcore/tipbot:latest -t blockcore/tipbot:${{ github.event.release.tag_name }} --label "unstable=true" "."
+      run: docker build -f "./src/Project/Dockerfile" -t blockcore/tipbot:latest -t "."
+      #run: docker build -f "./src/Project/Dockerfile" -t blockcore/tipbot:latest -t blockcore/tipbot:${{ github.event.release.tag_name }} "."
 
     # - name: Login and Push to Docker Registry
     #   run: |
