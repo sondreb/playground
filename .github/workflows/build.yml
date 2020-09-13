@@ -32,7 +32,7 @@ jobs:
     #         extension: ".zip"
     steps:
 
-    - uses: actions/checkout@v2
+    #- uses: actions/checkout@v2
 
 #    - uses: actions/download-artifact@v2
 
@@ -60,13 +60,22 @@ jobs:
     #     file: OpenWhisk_CLI-0.10.0-incubating-all.tgz
 
     - name: Download Release Assets
-      shell: bash
       run: |
-        curl -s -L -o node.tar.gz https://github.com/block-core/blockcore-nodes/releases/download/1.0.16/CITY-1.0.16-linux-x64.tar.gz
-        tar -xvz -C ./node.tar.gz
+        curl -s -L -o release.tar.gz https://github.com/block-core/blockcore-nodes/releases/download/1.0.16/CITY-1.0.16-linux-x64.tar.gz
+        mkdir release
+        tar -xvf release.tar.gz -C release
 
     - name: Display structure of downloaded files
       run: ls -R
+
+    - name: Build the Docker container image
+      run: docker build -f "./src/Project/Dockerfile" -t blockcore/tipbot:latest -t blockcore/tipbot:${{ github.event.release.tag_name }} --label "unstable=true" "."
+
+    # - name: Login and Push to Docker Registry
+    #   run: |
+    #     docker login -u "sondreb" -p "${{secrets.DockerHubSecret}}"
+    #     docker push blockcore/indexer
+
 
     # - uses: actions/checkout@v1
     #   name: Checkout

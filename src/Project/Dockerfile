@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS runtime
 
-EXPOSE 80
+EXPOSE 4335
 WORKDIR /app
-COPY ./publish ./
+COPY ./release ./
 
-ENTRYPOINT ["dotnet", "Company.Web.dll"]
+ENTRYPOINT ["dotnet", "City.Node.dll"]
