@@ -4,44 +4,52 @@ on:
   push:
     branches:
       - master
-  pull_request:
-    branches:
-      - master
-  schedule:
-      - cron:  '0 7 * * *'
-  repository_dispatch:
-    types: [publish-packages]
+  # pull_request:
+  #   branches:
+  #     - master
+  # schedule:
+  #     - cron:  '0 7 * * *'
+  # repository_dispatch:
+  #   types: [publish-packages]
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
-        chain: ['XDS', 'CITY']
-        include:
-          - os: windows-latest
-            extension: ".zip"
-            runtime: "win-x64"
-          - os: ubuntu-latest
-            extension: ".tar.gz"
-            runtime: "linux-x64"
-          - os: macos-latest
-            runtime: "osx-x64"
-            extension: ".zip"
+    runs-on: ubuntu-latest
+    # runs-on: ${{ matrix.os }}
+    # strategy:
+    #   matrix:
+    #     os: [windows-latest, ubuntu-latest, macos-latest]
+    #     chain: ['XDS', 'CITY']
+    #     include:
+    #       - os: windows-latest
+    #         extension: ".zip"
+    #         runtime: "win-x64"
+    #       - os: ubuntu-latest
+    #         extension: ".tar.gz"
+    #         runtime: "linux-x64"
+    #       - os: macos-latest
+    #         runtime: "osx-x64"
+    #         extension: ".zip"
     steps:
 
-    - uses: actions/checkout@v1
-      name: Checkout
+    - uses: actions/checkout@v2
+    
+    - uses: actions/download-artifact@v2
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.101
+    - name: Display structure of downloaded files
+      run: ls -R
 
-    - name: Variables
-      run: |
-        echo "::set-env name=RELEASE_RUNTIME::${{ matrix.runtime }}"
-        echo "::set-env name=RELEASE_CHAIN::${{ matrix.chain }}"
-        echo ${{ matrix.chain }}
-        echo ${{ matrix.os }}
+    # - uses: actions/checkout@v1
+    #   name: Checkout
+
+    # - name: Setup .NET
+    #   uses: actions/setup-dotnet@v1
+    #   with:
+    #     dotnet-version: 3.1.101
+
+    # - name: Variables
+    #   run: |
+    #     echo "::set-env name=RELEASE_RUNTIME::${{ matrix.runtime }}"
+    #     echo "::set-env name=RELEASE_CHAIN::${{ matrix.chain }}"
+    #     echo ${{ matrix.chain }}
+    #     echo ${{ matrix.os }}
