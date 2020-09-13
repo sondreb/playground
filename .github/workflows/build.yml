@@ -62,8 +62,9 @@ jobs:
     - name: Download Release Assets
       shell: bash
       run: |
-        curl -s -L https://github.com/sondreb/playground/releases/download/0.0.1/Blockcore.Features.BlockStore.1.0.13.nupkg
-        tar -xvz -C .
+        curl --help
+        curl -s -L -o https://github.com/sondreb/playground/releases/download/0.0.1/Blockcore.Features.BlockStore.1.0.13.nupkg
+#        tar -xvz -C .
 
     - name: Display structure of downloaded files
       run: ls -R
