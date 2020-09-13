@@ -43,17 +43,29 @@ jobs:
     #     tarBall: true
     #     zipBall: true
 
-    - name: Download Release Asset
-      id: download_release_asset
-      uses: i3h/download-release-asset@v1
-      with:
-        owner: sondreb
-        repo: playground
-        tag: latest
+    # - name: Download Release Asset
+    #   id: download_release_asset
+    #   uses: i3h/download-release-asset@v1
+    #   with:
+    #     owner: sondreb
+    #     repo: playground
+    #     tag: latest
     
+    # - name: Download CLI
+    #   uses: Legion2/download-release-action@v2.1.0
+    #   with:
+    #     repository: sondreb/playground
+    #     tag: '0.0.1'
+    #     path: downloads
+    #     file: OpenWhisk_CLI-0.10.0-incubating-all.tgz
+
+    - name: Download Release Assets
+      run: |
+        curl -Ls https://github.com/sondreb/playground/releases/download/0.0.1/CITY-1.0.16-linux-x64.tar.gz
+        tar -xvz -C .
+
     - name: Display structure of downloaded files
       run: ls -R
-
 
     # - uses: actions/checkout@v1
     #   name: Checkout
