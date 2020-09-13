@@ -34,11 +34,18 @@ jobs:
 
     - uses: actions/checkout@v2
 
-    - uses: actions/download-artifact@v2
+#    - uses: actions/download-artifact@v2
+
+    - uses: robinraju/release-downloader@v1
+      with:
+        repository: "sondreb/playground"
+        latest: true
+        tarBall: true
+        zipBall: true
 
     - name: Display structure of downloaded files
       run: ls -R
-      
+
 
     # - uses: actions/checkout@v1
     #   name: Checkout
