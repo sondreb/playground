@@ -62,8 +62,8 @@ jobs:
     - name: Download Release Assets
       shell: bash
       run: |
-        curl -s -L -o release.nupkg https://github.com/block-core/blockcore-nodes/releases/download/1.0.16/CITY-1.0.16-linux-x64.tar.gz
-        tar -xvz -C .
+        curl -s -L -o node.tar.gz https://github.com/block-core/blockcore-nodes/releases/download/1.0.16/CITY-1.0.16-linux-x64.tar.gz
+        tar -xvz -C ./node.tar.gz
 
     - name: Display structure of downloaded files
       run: ls -R
