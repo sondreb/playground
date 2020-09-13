@@ -62,9 +62,8 @@ jobs:
     - name: Download Release Assets
       shell: bash
       run: |
-        curl --help
-        curl -s -L -o release.nupkg https://github.com/sondreb/playground/releases/download/0.0.1/Blockcore.Features.BlockStore.1.0.13.nupkg
-#        tar -xvz -C .
+        curl -s -L -o release.nupkg https://github.com/block-core/blockcore-nodes/releases/download/1.0.16/CITY-1.0.16-linux-x64.tar.gz
+        tar -xvz -C .
 
     - name: Display structure of downloaded files
       run: ls -R
