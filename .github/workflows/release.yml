@@ -1,0 +1,26 @@
+name: Publish Release Packages
+
+on:
+  release:
+    types: [published,released,prereleased,edited]
+  repository_dispatch:
+    types: [publish-packages]
+  workflow_dispatch:
+
+jobs:
+
+  publishPackages:
+
+    runs-on: windows-latest
+    
+    env:
+      SOLUTION_PATH: 'src/Blockcore.sln'
+      BUILD_CONFIGURATION: 'Release'
+
+    steps:
+
+    - uses: actions/checkout@v1
+
+    - name: Echo
+      run: |
+        echo "You are the greatest!"
