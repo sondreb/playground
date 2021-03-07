@@ -52,7 +52,6 @@ jobs:
       run: dotnet pack --configuration Release --output "${{github.workspace}}/package/" src/SillyUselessPackage.sln -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 
     - name: Release
-      if: matrix.os == 'ubuntu-latest'
       uses: sondreb/action-release@master
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
