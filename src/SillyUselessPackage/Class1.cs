@@ -17,7 +17,7 @@ namespace SillyUselessPackage
         /// <returns></returns>
         public int Generate()
         {
-            return 1;
+            return 2;
         }
     }
 }
