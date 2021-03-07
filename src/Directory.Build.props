@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>0.0.5</Version>
+    <Version>0.0.6</Version>
     <RuntimeFrameworkVersion>5.0.3</RuntimeFrameworkVersion>
     <IsPackable>true</IsPackable>
     <Authors>SondreB</Authors>
@@ -16,6 +16,7 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DebugType>portable</DebugType>
   </PropertyGroup>
 
 </Project>
