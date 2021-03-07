@@ -51,6 +51,11 @@ jobs:
     - name: Nuget Pack
       run: dotnet pack --configuration Release --output "${{github.workspace}}/package/" src/SillyUselessPackage.sln -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 
+    - uses: actions/upload-artifact@v2
+      with:
+        name: sillyuselesspackage-artifacts
+        path: "${{github.workspace}}/package/"
+
     - name: Release
       uses: sondreb/action-release@master
       with:
