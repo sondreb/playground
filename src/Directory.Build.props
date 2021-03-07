@@ -12,6 +12,12 @@
     <PackageIconUrl>https://www.blockcore.net/assets/blockcore-256x256.png</PackageIconUrl>
     <PackageTags>silly;useless</PackageTags>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
   </PropertyGroup>
 
 </Project>
