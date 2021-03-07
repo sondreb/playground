@@ -1,0 +1,24 @@
+{
+  "name": "sillyuselesspackage",
+  "license": "MIT",
+  "author": {
+    "name": "SondreB",
+    "url": "https://www.sondreb.com"
+  },
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sondreb/playground.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sondreb/playground/issues"
+  },
+  "homepage": "https://github.com/sondreb/playground#readme",
+  "scripts": {
+    "version": "node version.js",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md"
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {}
+}

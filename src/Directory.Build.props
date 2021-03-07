@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <Version>0.0.1</Version>
+    <RuntimeFrameworkVersion>5.0.3</RuntimeFrameworkVersion>
+    <IsPackable>true</IsPackable>
+    <Authors>SondreB</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://www.sondreb.com</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/sondreb/playground</RepositoryUrl>
+    <PackageIcon></PackageIcon>
+    <PackageIconUrl>https://www.blockcore.net/assets/blockcore-256x256.png</PackageIconUrl>
+    <PackageTags>silly;useless</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+</Project>
