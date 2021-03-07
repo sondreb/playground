@@ -49,12 +49,15 @@ jobs:
       shell: bash
 
     - name: Nuget Pack
-      run: dotnet pack --configuration Release --output "${{github.workspace}}/package/" src/SillyUselessPackage.sln -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+      run: dotnet pack --include-source --include-symbols  --configuration Release --output "${{github.workspace}}/package/" src/SillyUselessPackage.sln -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 
     - uses: actions/upload-artifact@v2
       with:
         name: Blockcore-${{env.VERSION}}-preview
         path: "${{github.workspace}}/package/"
+
+    - name: Nuget Push
+      run: nuget push ${{github.workspace}}\package\*.nupkg -ApiKey ${{secrets.NUGET_KEY}} -Source "https://api.nuget.org/v3/index.json" -SkipDuplicate
 
     - name: Release
       uses: sondreb/action-release@master
