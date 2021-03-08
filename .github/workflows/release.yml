@@ -74,5 +74,5 @@ jobs:
     #     # Optional, defaults to current repo
     #     repo: ${{github.repository}}
 
-   - name: Display structure of downloaded files
-     run: ls -R
+    - name: Display structure of downloaded files
+      run: ls -R
