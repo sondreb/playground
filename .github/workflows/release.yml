@@ -19,8 +19,60 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
-    - name: Echo
+    - name: Log Variables
       run: |
-        echo "You are the greatest!"
+        echo "action - ${{ github.event.action }}"
+        echo "url - ${{ github.event.release.url }}"
+        echo "assets_url - ${{ github.event.release.assets_url }}"
+        echo "id - ${{ github.event.release.id }}"
+        echo "tag_name - ${{ github.event.release.tag_name }}"
+        echo "assets - ${{ github.event.assets }}"
+        echo "assets[0] - ${{ github.event.assets[0] }}"
+
+    # - name: Setup NuGet
+    #   uses: NuGet/setup-nuget@v1.0.5
+
+    # - name: Nuget Pack
+    #   run: dotnet pack --configuration ${{env.BUILD_CONFIGURATION}} --output "${{github.workspace}}\package\" ${{env.SOLUTION_PATH}}
+
+    # - name: Nuget Push
+    #   run: nuget push ${{github.workspace}}\package\*.nupkg -ApiKey ${{secrets.NUGET_KEY}} -Source "https://api.nuget.org/v3/index.json" -SkipDuplicate
+
+    - name: Download artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        # Optional, GitHub token
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        # Required, workflow file name or ID
+        workflow: workflow_name.yml
+        # Optional, the status or conclusion of a completed workflow to search for
+        # Can be one of a workflow conclusion::
+        # "failure", "success", "neutral", "cancelled", "skipped", "timed_out", "action_required"
+        # Or a workflow status:
+        # "completed", "in_progress", "queued"
+        # Default: "completed"
+        workflow_conclusion: success
+        # Optional, will get head commit SHA
+        pr: ${{github.event.pull_request.number}}
+        # Optional, no need to specify if PR is
+        commit: ${{github.event.pull_request.head.sha}}
+        # Optional, will use the branch
+        branch: master
+        # Optional, will use specified workflow run
+        run_id: 1122334455
+        # Optional, run number from the workflow
+        run_number: 34
+        # Optional, uploaded artifact name,
+        # will download all artifacts if not specified
+        # and extract them in respective subdirectories
+        # https://github.com/actions/download-artifact#download-all-artifacts
+        name: artifact_name
+        # Optional, directory where to extract artifact
+        path: extract_here
+        # Optional, defaults to current repo
+        repo: ${{github.repository}}
+
+   - name: Display structure of downloaded files
+     run: ls -R
