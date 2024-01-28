@@ -11,21 +11,21 @@ MTLA: Montelibero Association
 mindmap
   root(("`**Montelibero**`"))
     id[Montelibero Association]
-        MTL City 🏘️
+        id[MTL City 🏘️]
         id[MTLA: Assembly]
             id[MTLA: Council]
         id[MTLA: Agora 🪙]
         id[MTLA: Documents 📙]
-        id[MTLA: Factions]
+        id(MTLA: Factions)
             id{{Ancaps 💛}}
             id{{Minarchists}}
             id{{Cyberocrats 😸}}
             id{{Pastafarians 👾}}
             id{{Mysticism}}
             id{{Transhumanists}}
-    MTL Court ⚖️
-    Montelibero Wiki 📃
-    Third Montelibero Fund
-    MTL Programmers
-        MTL Solar Wallet
+    id[MTL Court ⚖️]
+    id[Montelibero Wiki 📃]
+    id[Third Montelibero Fund]
+    id[MTL Programmers]
+        id(MTL Solar Wallet)
 ```
