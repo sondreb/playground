@@ -1,5 +1,7 @@
 # Montelibero
 
+Mindmap of Montelibero to make it easier to see relationships between the various parts of the movement. This mindmap is not official and it doesn't show all and correct relationships, as there are cross-relationships between the various parts of the movement that are not shown here.
+
 ```mermaid
 mindmap
   root((Montelibero))
