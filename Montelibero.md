@@ -15,6 +15,7 @@ mindmap
         id[MTL Fund 💰]
         id[MTLA: Assembly]
             id[MTLA: Council]
+            id[MTLA: Executive bodies]
         id[MTLA: Agora 🪙]
         id[MTLA: Documents 📙]
         id(MTLA: Factions)
