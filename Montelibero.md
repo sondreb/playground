@@ -12,6 +12,7 @@ mindmap
   root(("`**Montelibero**`"))
     id[Montelibero Association]
         id[MTL City 🏘️]
+        id[MTL Fund 💰]
         id[MTLA: Assembly]
             id[MTLA: Council]
         id[MTLA: Agora 🪙]
